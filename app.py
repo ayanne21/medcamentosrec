@@ -42,7 +42,7 @@ st.set_page_config(page_title="Medicamentos por Distrito", layout="wide")
 st.title("Distribuição de Medicamentos por Unidade de Saúde")
 
 # Carregar dados
-df = carregar_dados("data/medicamentos_por_unidade_de_saude.csv")
+df = carregar_dados("medicamentos_por_unidade_de_saude.csv")
 
 # Sidebar
 st.sidebar.header("Filtros")
