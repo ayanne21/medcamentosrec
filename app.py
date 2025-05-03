@@ -95,7 +95,7 @@ st.plotly_chart(fig_top10, use_container_width=True)
 # -----------------------------
 # Gráfico: Top 10 por Distrito
 # -----------------------------
-st.subheader("Medicamentos elegiveis em remanejamento de estoque")
+st.subheader("Medicamentos elegíveis em remanejamento de estoque")
 top3_df = (
     df_distrito.groupby('produto')['quantidade']
     .sum()
