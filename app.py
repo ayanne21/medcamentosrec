@@ -44,6 +44,7 @@ st.title("Distribuição de Medicamentos por Unidade de Saúde")
 # Carregar dados
 df = carregar_dados("medicamentos_por_unidade_de_saude.csv")
 
+
 # Sidebar
 st.sidebar.header("Filtros")
 distritos = sorted(df['distrito'].dropna().unique())
