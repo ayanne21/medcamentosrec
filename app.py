@@ -186,7 +186,7 @@ st.plotly_chart(fig_unidades_criticas, use_container_width=True)
 # -----------------------------
 # Top 10 Unidades com mais produtos em "Alerta"
 # -----------------------------
-st.subheader("Top 10 Unidades com Mais Produtos em Alerta")
+
 
 # Filtrar produtos com criticidade "Alerta"
 produtos_alerta = estoque_total_unid[estoque_total_unid["criticidade"] == "Alerta"]
@@ -308,7 +308,9 @@ A análise da distribuição de medicamentos nas unidades de saúde do Recife re
 
 - **Concentração de medicamentos em doenças crônicas**: Os medicamentos mais distribuídos (Losartana, Enalapril, Metformina) refletem corretamente a prioridade epidemiológica da rede pública, voltada ao tratamento da hipertensão, diabetes e colesterol.
 
-- **Desigualdade na distribuição por distrito**: Unidades como os Distritos Sanitários II, III, IV, V e VI (Principalmente às Unidades de Saúde relativas aos bairos de Brasília Teimosa, Imbiribeira, Ipsep e Pina), além da Farmácia da Família Arnaldo Marques acumulam maior número de produtos em situação “Crítico, evidenciando falhas na alocação de estoques ou reposição desbalanceada.
+- **Desigualdade na distribuição por distrito**: 
+Unidades como os Distritos Sanitários II, III, IV, V e VI (Principalmente às Unidades de Saúde relativas aos bairos de Brasília Teimosa, Imbiribeira, Ipsep e Pina), além da Farmácia da Família Arnaldo Marques acumulam maior número de produtos em situação “Crítico, evidenciando falhas na alocação de estoques ou reposição desbalanceada.
+Policlínicas importantes para a cidade, incluindo duas maternidades se destacam em medicamentos que estão próximos de findar o estoque.
 
 - **Unidades mais críticas exigem atenção imediata**: O ranking das 10 unidades com mais produtos críticos aponta pontos de atenção que podem sofrer com ruptura de estoque se não houver ação urgente.
 
