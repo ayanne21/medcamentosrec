@@ -255,13 +255,41 @@ fig_criticidade.update_layout(template='plotly_dark')
 st.plotly_chart(fig_criticidade, use_container_width=True)
 
 
-st.write("")
-st.markdown("Boas Práticas resultantes desta visualização: **Revisar os critérios de distribuição atual**, priorizando distritos com maior número de categorias críticas e em alerta.")
-st.markdown("- **Realizar remanejamentos de estoque entre distritos**, sempre que possível, para garantir equidade no acesso.")
-st.markdown("- **Monitorar continuamente** as categorias mais sensíveis para evitar ruptura completa.")
+# -----------------------------
+# Conclusões e Recomendações
+# -----------------------------
 
+st.markdown("## Conclusões e Recomendações")
 
+st.markdown("""
+A análise da distribuição de medicamentos nas unidades de saúde do Recife revela um cenário com importantes desafios e oportunidades para aprimorar a gestão do estoque.
 
+### Principais Pontos:
+
+- **Concentração de medicamentos em doenças crônicas**: Os medicamentos mais distribuídos (Losartana, Enalapril, Metformina) refletem corretamente a prioridade epidemiológica da rede pública, voltada ao tratamento da hipertensão, diabetes e colesterol.
+
+- **Desigualdade na distribuição por distrito**: Unidades como os Distritos Sanitários II, III, IV, V e VI (Principalmente às Unidades de Saúde relativas aos bairos de Brasília Teimosa, Imbiribeira, Ipsep e Pina), além da Farmácia da Família Arnaldo Marques acumulam maior número de produtos em situação “Crítico, evidenciando falhas na alocação de estoques ou reposição desbalanceada.
+
+- **Unidades mais críticas exigem atenção imediata**: O ranking das 10 unidades com mais produtos críticos aponta pontos de atenção que podem sofrer com ruptura de estoque se não houver ação urgente.
+
+### Boas Práticas resultantes desta visualização:
+
+**1. Implantar um sistema de remanejamento interno**  
+Redistribuir medicamentos entre unidades próximas com base na criticidade, priorizando locais com estoque zerado.
+
+**2. Monitorar permanentemente as unidades críticas**  
+Utilizar o dashboard  para guiar decisões operacionais, com atualização em tempo real.
+
+**3. Estabelecer metas de estoque mínimo por distrito**  
+Baseadas em padrões de consumo histórico, população atendida e sazonalidade. (Próximo passo importante para o aperfeiçoamento do dado)
+
+**5. Priorizar as unidades do Top 10 Crítico no próximo ciclo logístico**  
+Essas unidades devem ser abastecidas com urgência para garantir acesso contínuo da população aos tratamentos.
+
+---
+
+Essas ações não só otimizam recursos, como também fortalecem a equidade no acesso à saúde, garantindo que nenhuma região fique desassistida.
+""")
 
 
 # -----------------------------
