@@ -201,7 +201,12 @@ fig_criticidade = px.bar(
     color='criticidade',
     title='Quantidade de Produtos por Criticidade em Cada Distrito',
     barmode='group',
-    text='quantidade'
+    text='quantidade',
+    color_discrete_map={
+        "Crítico": "#FF4C4C",    # vermelho
+        "Alerta": "#FFA500",     # laranja
+        "Abastecido": "#2ECC71"  # verde
+    }
 )
 fig_criticidade.update_layout(template='plotly_dark')
 st.plotly_chart(fig_criticidade, use_container_width=True)
