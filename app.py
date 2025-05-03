@@ -142,7 +142,7 @@ estoque_total_unid["criticidade"] = estoque_total_unid["quantidade"].apply(categ
 # -----------------------------
 # Top 10 Unidades mais Críticas (Gráfico Horizontal)
 # -----------------------------
-st.subheader("Top 10 Unidades com Maior Número de Produtos Críticos")
+
 
 # Filtrar apenas produtos com criticidade "Crítico"
 produtos_criticos = estoque_total_unid[estoque_total_unid["criticidade"] == "Crítico"]
@@ -189,6 +189,7 @@ st.plotly_chart(fig_unidades_criticas, use_container_width=True)
 # -----------------------------
 # DataFrame: Responsivo de acordo com o sidebar
 # -----------------------------
+#st.subheader("Nível de criticidade de cada produto nas Unidades de Saúde)
 
 # Sidebar - Filtros
 st.sidebar.subheader("Filtros")
