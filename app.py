@@ -42,7 +42,7 @@ st.set_page_config(page_title="Medicamentos por Distrito", layout="wide")
 st.title("Distribuição de Medicamentos por Unidade de Saúde")
 
 # Carregar dados
-df = carregar_dados("medicamentos_por_unidade_de_saude.csv")
+df = carregar_dados("data/medicamentos_por_unidade_de_saude.csv")
 
 # Sidebar
 st.sidebar.header("Filtros")
@@ -138,6 +138,45 @@ def categorizar(qtd):
     else:
         return "Abastecido"
 estoque_total_unid["criticidade"] = estoque_total_unid["quantidade"].apply(categorizar)
+
+# -----------------------------
+# Gráfico: Top 10 Unidades com Mais Produtos em Situação Crítica
+# -----------------------------
+
+st.subheader("Top 10 Unidades com Mais Produtos em Situação Crítica")
+
+# Filtrar apenas produtos com criticidade "Crítico"
+criticos_df = estoque_total_unid[estoque_total_unid['criticidade'] == "Crítico"]
+
+# Contar quantos produtos críticos por unidade
+top10_criticos = (
+    criticos_df.groupby("unidade")["produto"]
+    .count()
+    .sort_values(ascending=False)
+    .head(10)
+    .reset_index()
+    .rename(columns={"produto": "quantidade_criticos"})
+)
+
+# Plotar o gráfico
+fig_top10_criticos = px.bar(
+    top10_criticos,
+    x="quantidade_criticos",
+    y="unidade",
+    orientation="h",
+    text="quantidade_criticos",
+    title="Top 10 Unidades com Mais Produtos Críticos",
+    color_discrete_sequence=["#FF4C4C"]  # vermelho
+)
+
+fig_top10_criticos.update_layout(
+    template="plotly_dark",
+    showlegend=False,
+    height=500
+)
+fig_top10_criticos.update_traces(textposition="outside")
+
+st.plotly_chart(fig_top10_criticos, use_container_width=True)
 
 
 
