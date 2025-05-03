@@ -325,7 +325,7 @@ Utilizar o dashboard  para guiar decisões operacionais, com atualização em te
 **3. Estabelecer metas de estoque mínimo por distrito**  
 Baseadas em padrões de consumo histórico, população atendida e sazonalidade. (Próximo passo importante para o aperfeiçoamento do dado)
 
-**5. Priorizar as unidades do Top 10 Crítico no próximo ciclo logístico**  
+**4. Priorizar as unidades do Top 10 Crítico no próximo ciclo logístico**  
 Essas unidades devem ser abastecidas com urgência para garantir acesso contínuo da população aos tratamentos.
 
 ---
