@@ -140,44 +140,46 @@ def categorizar(qtd):
 estoque_total_unid["criticidade"] = estoque_total_unid["quantidade"].apply(categorizar)
 
 # -----------------------------
-# Gráfico: Top 10 Unidades com Mais Produtos em Situação Crítica
+# Top 10 Unidades mais Críticas (Gráfico Horizontal)
 # -----------------------------
-
-st.subheader("Top 10 Unidades com Mais Produtos em Situação Crítica")
+st.subheader("Top 10 Unidades com Maior Número de Produtos Críticos")
 
 # Filtrar apenas produtos com criticidade "Crítico"
-criticos_df = estoque_total_unid[estoque_total_unid['criticidade'] == "Crítico"]
+produtos_criticos = estoque_total_unid[estoque_total_unid["criticidade"] == "Crítico"]
 
-# Contar quantos produtos críticos por unidade
-top10_criticos = (
-    criticos_df.groupby("unidade")["produto"]
+# Agrupar e contar por unidade
+unidades_mais_criticas = (
+    produtos_criticos.groupby("unidade")["produto"]
     .count()
     .sort_values(ascending=False)
     .head(10)
     .reset_index()
-    .rename(columns={"produto": "quantidade_criticos"})
+    .rename(columns={"produto": "qtd_produtos_criticos"})
 )
 
-# Plotar o gráfico
-fig_top10_criticos = px.bar(
-    top10_criticos,
-    x="quantidade_criticos",
+# Garantir que a ordem Y seja decrescente (mais crítica no topo)
+unidades_mais_criticas = unidades_mais_criticas.sort_values("qtd_produtos_criticos", ascending=True)
+
+# Gráfico de barras horizontais
+fig_unidades_criticas = px.bar(
+    unidades_mais_criticas,
+    x="qtd_produtos_criticos",
     y="unidade",
     orientation="h",
-    text="quantidade_criticos",
-    title="Top 10 Unidades com Mais Produtos Críticos",
-    color_discrete_sequence=["#FF4C4C"]  # vermelho
+    text="qtd_produtos_criticos",
+    color_discrete_sequence=["#FF4C4C"],  # vermelho
+    title="Top 10 Unidades com Mais Produtos Críticos"
 )
 
-fig_top10_criticos.update_layout(
+fig_unidades_criticas.update_layout(
     template="plotly_dark",
     showlegend=False,
     height=500
 )
-fig_top10_criticos.update_traces(textposition="outside")
+fig_unidades_criticas.update_traces(textposition="outside")
 
-st.plotly_chart(fig_top10_criticos, use_container_width=True)
-
+# Mostrar no Streamlit
+st.plotly_chart(fig_unidades_criticas, use_container_width=True)
 
 
 
